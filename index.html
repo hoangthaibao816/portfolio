@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Hoàng Thái Bảo</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Segoe UI;background:#fff0f5;color:#111;overflow-x:hidden}
+
+/* BACKGROUND TEXT FIX */
+.bg-wrapper{
+position:fixed;
+top:-50%;left:-50%;
+width:300%;height:300%;
+transform:rotate(-45deg);
+z-index:0;
+pointer-events:none;
+}
+.bg-line{
+font-family:cursive;
+font-size:40px;
+color:rgba(255,105,180,0.2);
+white-space:nowrap;
+animation:move 20s linear infinite;
+margin:25px 0;
+}
+.bg-line:nth-child(even){animation-duration:25s}
+.bg-line:nth-child(odd){animation-duration:15s}
+@keyframes move{
+0%{transform:translateX(0)}
+100%{transform:translateX(-50%)}
+}
+
+.container{max-width:1100px;margin:auto;padding:50px 20px;position:relative;z-index:1}
+.hero{display:flex;gap:40px;flex-wrap:wrap;align-items:center;margin-bottom:60px}
+
+/* FLIP IMAGE */
+.flip{
+perspective:1000px;
+}
+.flip-inner{
+position:relative;
+width:220px;height:280px;
+transition:transform 0.8s;
+transform-style:preserve-3d;
+cursor:pointer;
+}
+.flip-inner.active{
+transform:rotateY(180deg);
+}
+.flip-front, .flip-back{
+position:absolute;
+width:100%;height:100%;
+backface-visibility:hidden;
+border-radius:20px;
+overflow:hidden;
+}
+.flip-front img, .flip-back img{
+width:100%;height:100%;object-fit:cover;
+}
+.flip-back{
+transform:rotateY(180deg);
+}
+
+.caption{font-size:14px;color:#777;margin-top:5px;text-align:center}
+.hero-info{display:flex;flex-direction:column;gap:10px}
+
+.section{margin-bottom:60px}
+h2{margin-bottom:15px;color:#ff69b4}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:white;border:1px solid #ffb6c1;padding:20px;border-radius:16px;cursor:pointer;position:relative;overflow:hidden;transition:.3s}
+.card:hover{transform:translateY(-6px);box-shadow:0 10px 25px rgba(255,105,180,0.3)}
+
+/* BUMP SCREEN */
+.bump{
+animation:bump 0.2s ease;
+}
+@keyframes bump{
+0%{transform:scale(1)}
+50%{transform:scale(1.02)}
+100%{transform:scale(1)}
+}
+
+.effect{
+position:absolute;
+font-size:24px;
+animation:spread 1s ease-out forwards;
+}
+@keyframes spread{
+0%{opacity:1;transform:scale(0.5)}
+100%{opacity:0;transform:scale(2) translateY(-40px)}
+}
+
+.kiss{
+position:fixed;
+font-size:24px;
+animation:kissFly 1s ease-out forwards;
+pointer-events:none;
+z-index:999;
+}
+@keyframes kissFly{
+0%{opacity:1;transform:translateY(0)}
+100%{opacity:0;transform:translateY(-80px)}
+}
+
+.small-note{font-size:13px;color:#999;margin-top:3px}
+footer{text-align:center;padding:20px;border-top:1px solid #ffb6c1;color:#ff69b4}
+</style>
+</head>
+<body>
+
+<div class="bg-wrapper">
+<div class="bg-line">xinhgai xinhgai xinhgai xinhgai xinhgai xinhgai</div>
+<div class="bg-line">xinhgai xinhgai xinhgai xinhgai xinhgai xinhgai</div>
+<div class="bg-line">xinhgai xinhgai xinhgai xinhgai xinhgai xinhgai</div>
+<div class="bg-line">xinhgai xinhgai xinhgai xinhgai xinhgai xinhgai</div>
+<div class="bg-line">xinhgai xinhgai xinhgai xinhgai xinhgai xinhgai</div>
+<div class="bg-line">xinhgai xinhgai xinhgai xinhgai xinhgai xinhgai</div>
+</div>
+
+<div class="container">
+
+<section class="hero">
+<div class="flip" onclick="this.querySelector('.flip-inner').classList.toggle('active')">
+<div class="flip-inner">
+<div class="flip-front">
+<img src="avatar.jpg">
+</div>
+<div class="flip-back">
+<img src="z7661561233353_aa6535d87c67ea1a541d40801a3a2322.jpg">
+</div>
+</div>
+<div class="caption">(ảnh đẹp nhất của em) (bấm để lật)</div>
+</div>
+
+<div class="hero-info">
+<h1 style="color:#ff1493">Hoàng Thái Bảo</h1>
+<p>Sinh ngày: 08/01/2006 ♑</p>
+<p>MSSV: 2412820015</p>
+<p>Chuyên ngành: Kế toán - Kiểm toán (ĐH Ngoại Thương)</p>
+<div>
+<p>Sở thích: Ngủ nướng 😴</p>
+<p class="small-note">(bấm vào ô để thấy bất ngờ) (tốt nước sơn only)</p>
+</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Tính cách</h2>
+<div class="grid">
+<div class="card">Ổn định</div>
+<div class="card">Hiền hòa</div>
+<div class="card">Dễ tính</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Kỹ năng</h2>
+<div class="grid">
+<div class="card">Nấu nướng</div>
+<div class="card">Giặt giũ</div>
+<div class="card">Không ngủ khi nghe giảng</div>
+<div class="card">Learn on TikTok 12h/ngày</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Học vấn</h2>
+<div class="grid">
+<div class="card">12/12</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Thành tích</h2>
+<div class="grid">
+<div class="card">Hoàn thành 12 năm theo ngành giáo dục với vai trò học sinh</div>
+<div class="card">Tiếp tục nghiên cứu ở môi trường đại học</div>
+</div>
+</section>
+
+<section class="section">
+<h2>Liên hệ</h2>
+<div class="grid">
+<div class="card">📞 0839363663</div>
+<div class="card">📧 k63.2412820015@ftu.edu.vn</div>
+</div>
+</section>
+
+</div>
+
+<footer>© 2026 Hoàng Thái Bảo</footer>
+
+<script>
+const emojis=["🦋","🌸","✨","🐟","💫","💖","🌟"];
+
+document.querySelectorAll('.card').forEach(card=>{
+card.addEventListener('click',()=>{
+document.body.classList.add('bump');
+setTimeout(()=>document.body.classList.remove('bump'),200);
+
+let chosen=emojis[Math.floor(Math.random()*emojis.length)];
+for(let i=0;i<15;i++){
+let e=document.createElement('span');
+e.className='effect';
+e.innerText=chosen;
+e.style.left=Math.random()*100+'%';
+e.style.top=Math.random()*100+'%';
+card.appendChild(e);
+setTimeout(()=>e.remove(),1000);
+}
+});
+});
+
+// CLICK ANYWHERE → 💋
+document.addEventListener('click',(e)=>{
+if(!e.target.closest('.card')){
+let kiss=document.createElement('span');
+kiss.className='kiss';
+kiss.innerText='💋';
+kiss.style.left=e.clientX+'px';
+kiss.style.top=e.clientY+'px';
+document.body.appendChild(kiss);
+setTimeout(()=>kiss.remove(),1000);
+}
+});
+</script>
+
+</body>
+</html>
